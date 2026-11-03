@@ -1,0 +1,15 @@
+[project]
+name = "flighthunter"
+version = "0.1.0"
+description = "FlightHunter AI — monitor de tarifas aéreas (BEL→BSB, posse jan/2027)"
+requires-python = ">=3.11"
+dependencies = []   # somente biblioteca padrão
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+flighthunter = "flighthunter.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

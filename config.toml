@@ -1,0 +1,25 @@
+[trip]
+origin = "BEL"
+destination = "BSB"
+preferred_outbound = "2027-01-04"
+alternative_outbounds = ["2027-01-03"]
+return_date = "2027-01-06"        # requisito principal: preservada
+adults = 1
+cabin = "economy"
+currency = "BRL"
+prefer_direct = true
+target_price_per_person = 1300.0
+# Seção "Alternativas": pares (ida, volta) fora do requisito principal. Cada par custa chamadas de API.
+alternative_pairs = [["2027-01-04", "2027-01-07"], ["2027-01-04", "2027-01-05"]]
+
+[alerts]
+drop_alert_pct = 10.0
+notifiers = ["console"]           # "telegram", "email"
+
+[run]
+providers = ["serpapi", "amadeus", "duffel"]   # ordem de prioridade
+max_calls_per_run = 12
+serpapi_return_details = 2
+amadeus_env = "production"        # "test" = dados limitados
+db_path = "data/flighthunter.sqlite"
+watch_interval_minutes = 360
